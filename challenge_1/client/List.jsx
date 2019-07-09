@@ -9,12 +9,12 @@ class List extends React.Component {
     const lists = this.props.lists.map((list) => {
       return (
         <ul>
-          <li>Date: {list.date}</li>
-          <li>Category One:{list.category1}</li>
-          <li>Category Two:{list.category2}</li>
-          <li>Description: {list.description}</li>
-          <li>Granularity: {list.granularity}</li>
-          <li>Language: {list.lang}</li>
+          <li> {list.date}</li>
+          <li>{list.category1}</li>
+          <li>{list.category2}</li>
+          <li>{list.description}</li>
+          <li>{list.granularity}</li>
+          <li>{list.lang}</li>
         </ul>
       )
     })
