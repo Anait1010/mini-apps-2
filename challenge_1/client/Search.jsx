@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import List from './List.jsx'
+import List from './List.jsx';
 
 class Search extends React.Component {
   constructor(props) {
@@ -19,7 +19,6 @@ class Search extends React.Component {
     this.setState({
       term: event.target.value
     })
-    console.log(event.target.value)
   }
 
   handleSubmit(event) {
@@ -28,7 +27,6 @@ class Search extends React.Component {
     axios.get(`/events?q=${this.state.term}`)
       .then((response) => {
         this.setState({ lists: response.data }, () => {
-          console.log('lists', this.state.lists);
         })
 
       })
@@ -44,7 +42,9 @@ class Search extends React.Component {
           </input>
           <input type="submit" value="submit"></input>
         </form>
-        <List lists={this.state.lists} />
+        <div>
+          <List lists={this.state.lists} />
+        </div>
       </div>
     )
   }

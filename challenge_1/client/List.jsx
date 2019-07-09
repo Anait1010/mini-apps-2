@@ -7,19 +7,20 @@ class List extends React.Component {
 
   render() {
     const lists = this.props.lists.map((list) => {
-      // console.log('List arr', list)
-      return
-      <ul>
-        <li>Date: {list.date}</li>
-        <li>Category 1:{list.category1}</li>
-        <li>Category 2:{list.category2}</li>
-        <li>Descriptions: {list.description}</li>
-        <li>Granularity: {list.granularity}</li>
-        <li>Lang: {list.lang}</li>
-      </ul>
+      return (
+        <ul>
+          <li>Date: {list.date}</li>
+          <li>Category One:{list.category1}</li>
+          <li>Category Two:{list.category2}</li>
+          <li>Description: {list.description}</li>
+          <li>Granularity: {list.granularity}</li>
+          <li>Language: {list.lang}</li>
+        </ul>
+      )
     })
     return (
       <div>
+        <h3>LIST OF HISTORICAL EVENTS</h3>
         {lists}
       </div>
     )
