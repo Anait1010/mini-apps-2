@@ -10,10 +10,12 @@ class Search extends React.Component {
     //initiate state
     this.state = {
       term: '',
-      lists: []
+      lists: [],
+      events: 0
     }
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCLick = this.handleCLick.bind(this);
   }
 
   handleSearch(event) {
@@ -35,6 +37,19 @@ class Search extends React.Component {
         console.log('Error', error)
       })
   }
+
+  handleCLick(page) {
+    const pageNum = page.selected;
+    axios.get(`/events?q=${this.state.term}&_page=${pageNumber}&_limit=10`)
+      .then((response) => {
+        return response.json();
+        console.log('RESP', response)
+      })
+      .catch((error) => {
+        console.log('Error', error)
+      })
+
+  }
   render() {
     return (
       <div>
@@ -46,6 +61,13 @@ class Search extends React.Component {
         <div>
           <List lists={this.state.lists} />
         </div>
+        <ReactPaginate
+          onPageChange={this.handleClick}
+          pageCount={Math.ceil(this.state.events / 10)}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={5}
+
+        />
       </div>
     )
   }
