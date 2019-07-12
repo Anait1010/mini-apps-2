@@ -16,7 +16,23 @@ class App extends React.Component {
       .then((response) => {
         // return response;
         console.log('RESPONSE', response.data);
+        const value = [];
+        const newDate = [];
+
+        for (var key in response.data.bpi) {
+          // console.log('bpi', response.data.bpi)
+          newDate.push(key);
+          value.push(response.data.bpi[key]);
+
+        }
+        this.setState({
+          currency: value,
+          dates: newDate
+
+        })
+        console.log('Currency', value, 'DATE', newDate)
       })
+
       .catch((error) => {
         console.log('Error', error)
       })
