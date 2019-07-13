@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Chart from 'chart.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -40,7 +41,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <h3>Cryptocurrency Chartig Tool</h3>
+      <div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <h3>Cryptocurrency Chartig Tool</h3>
+      </div>
     )
   }
 }
