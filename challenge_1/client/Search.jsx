@@ -42,8 +42,9 @@ class Search extends React.Component {
     const pageNum = page.selected;
     axios.get(`/events?q=${this.state.term}&_page=${pageNumber}&_limit=10`)
       .then((response) => {
-        return response.json();
-        console.log('RESP', response)
+        this.setState({ lists: response.data }, () => {
+          console.log('RESP', response)
+        })
       })
       .catch((error) => {
         console.log('Error', error)
